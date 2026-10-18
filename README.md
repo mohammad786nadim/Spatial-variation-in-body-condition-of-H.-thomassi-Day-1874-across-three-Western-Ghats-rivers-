@@ -82,7 +82,7 @@ The input files must contain the length and weight measurements in the format ex
 
 Researchers who use or adapt this R script are requested to acknowledge the source by citing the associated research publication or the archived software release.
 
-The repository will be archived in Zenodo, and the DOI and recommended citation will be added once they are available.
+The repository is archived in Zenodo, and the DOI is https://doi.org/10.5281/zenodo.23456553
 
 ## License
 
