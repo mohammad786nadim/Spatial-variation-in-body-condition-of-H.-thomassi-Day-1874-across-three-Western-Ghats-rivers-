@@ -2,7 +2,6 @@
 ## MASTER SCRIPT: LWR + CONDITION FACTORS + ANCOVA + LLR
 ############################################################
 
-
 ############################################################
 ## MASTER: LWR PLOTS FOR ALL 3 RIVERS (ONE BY ONE + COMBINED)
 ## Model: W = a L^b  (fit on log10 scale, back-transformed)
@@ -150,12 +149,9 @@ param_table <- data.frame(
 
 print(param_table)
 
-
-
 # ================= 1. LIBRARIES =================
 library(dplyr)
 library(ggplot2)
-
 
 theme_set(theme_bw())
 
@@ -304,7 +300,6 @@ ggplot(combined_log, aes(x = TL, y = W, color = River)) +
   ) +
   theme_bw()
 
-
 # ================= 9. CONDITION FACTOR SUMMARY =================
 
 library(ggplot2)
@@ -401,7 +396,6 @@ factor_cols <- c(
   "Kn" = "#fc8d62"
 )
 
-
 p_cond <- ggplot(cond_long, aes(x = River, y = Value, fill = Factor)) +
   geom_boxplot(
     width = 0.7,
@@ -441,7 +435,6 @@ p_cond <- ggplot(cond_long, aes(x = River, y = Value, fill = Factor)) +
     panel.grid.minor = element_line(color = "grey90", linewidth = 0.4)
   )
 
-
 print(p_cond)
 
 # Save
@@ -476,8 +469,6 @@ cond_summary_full <- cond_all %>%
   )
 
 print(cond_summary_full)
-
-
 
 # ================= 10. LWR ANCOVA =================
 all_data <- bind_rows(Kallada, Periyar, Netravati)
@@ -663,9 +654,6 @@ cat("\n================ FL ~ TL ================\n")
 run_llr_print_residclean(netravati, "Netravati", "FL", "TL", cutoff = RESID_CUTOFF)
 run_llr_print_residclean(periyar,   "Periyar",   "FL", "TL", cutoff = RESID_CUTOFF)
 run_llr_print_residclean(kallada,   "Kallada",   "FL", "TL", cutoff = RESID_CUTOFF)
-
-
-
 
 ############################################################
 ## MASTER SCRIPT (CONTINUATION): LLR PLOTS + ANALYSIS
@@ -914,9 +902,6 @@ print(p_FL_TL)
 # ggsave(file.path(path_llr, "ALLRIVERS_TL_vs_SL_clean_blueOut.tiff"), p_TL_SL, dpi = 600, width = 7, height = 5)
 # ggsave(file.path(path_llr, "ALLRIVERS_SL_vs_FL_clean_blueOut.tiff"), p_SL_FL, dpi = 600, width = 7, height = 5)
 # ggsave(file.path(path_llr, "ALLRIVERS_FL_vs_TL_clean_blueOut.tiff"), p_FL_TL, dpi = 600, width = 7, height = 5)
-
-
-
 
 ###########################ANCOVA######################################
 # ============================================================
@@ -1198,8 +1183,6 @@ summary(res_FL_TL$ancova$pairwise_b, infer = TRUE)
 summary(res_FL_TL$ancova$slopes, infer = TRUE)
 res_FL_TL$ancova$ancova_table
 res_FL_TL$outliers
-
-
 
 ################################## SCALED-MASS INDEX #################################
 ######################################################################################
